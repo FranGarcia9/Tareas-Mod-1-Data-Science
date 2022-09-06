@@ -26,10 +26,12 @@ WHERE economies.year = 2010
 
 #ejercicio 4
 #En este ejercicio no me quedaron claras las intrucciones
-;SELECT cities.name AS city, urbanarea_pop, countries.country_name AS country, indep_year
+SELECT city, urbanarea_pop, country_name AS country, indep_year, city, language, percent
 FROM countries
-RIGHT JOIN cities
-ON cities.country_code = countries.code;
+RIGHT JOIN (SELECT languages.name AS language, percent, cities.name AS city, urbanarea_pop, code
+            FROM languages 
+            RIGHT JOIN cities ON languages.code = cities.country_code) AS cities
+            ON countries.code = cities.code;
 
 #Ejercicio 5
 #Este ejercicio no me quedo todo claro
