@@ -35,4 +35,4 @@ RIGHT JOIN (SELECT languages.name AS language, percent, cities.name AS city, urb
 
 #Ejercicio 5
 #Este ejercicio no me quedo todo claro
-;SELECT * FROM populations WHERE life_expectancy > 1.15* (SELECT AVG (life_expectancy) FROM populations WHERE populations.year = 2015);
+SELECT * FROM populations WHERE life_expectancy > 1.15* (SELECT AVG (life_expectancy) FROM populations WHERE populations.year = 2015) AND year = 2015;
